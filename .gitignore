@@ -5,6 +5,9 @@ buildbot/
 /VERSION.txt
 __pycache__
 
+zig-out/
+zig-cache/
+
 *.so
 *.so.*
 *.dll
