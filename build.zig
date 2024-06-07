@@ -36,6 +36,7 @@ pub fn build(b: *std.Build) void {
                 .files = &objective_c_src_files,
                 .flags = &.{"-fobjc-arc"},
             });
+            lib.addFrameworkPath(.{ .path = "/System/Library/Frameworks" });
             lib.linkFramework("GameController");
             lib.linkFramework("CoreHaptics");
             lib.linkFramework("OpenGL");
