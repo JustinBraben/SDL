@@ -13,8 +13,8 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    lib.addIncludePath(.{ .path = "include"});
-    lib.addIncludePath(.{ .path = "src"});
+    lib.addIncludePath(b.path("include"));
+    lib.addIncludePath(b.path("src"));
     lib.addCSourceFiles(.{ .files = &generic_src_files });
     lib.defineCMacro("SDL_USE_BUILTIN_OPENGL_DEFINITIONS", "1");
     // SDL_JOYSTICK_MFI
@@ -36,7 +36,7 @@ pub fn build(b: *std.Build) void {
                 .files = &objective_c_src_files,
                 .flags = &.{"-fobjc-arc"},
             });
-            lib.addFrameworkPath(.{ .path = "/System/Library/Frameworks" });
+            lib.addFrameworkPath(b.path("/System/Library/Frameworks"));
             lib.linkFramework("GameController");
             lib.linkFramework("CoreHaptics");
             lib.linkFramework("OpenGL");
@@ -53,14 +53,14 @@ pub fn build(b: *std.Build) void {
         },
         else => {
             const config_header = b.addConfigHeader(.{
-                .style = .{ .cmake = .{ .path = "include/build_config/SDL_build_config.h.cmake"} },
+                .style = .{ .cmake = b.path("include/build_config/SDL_build_config.h.cmake") },
                 .include_path = "include/build_config/SDL_build_config.h",
             }, .{});
             lib.addConfigHeader(config_header);
-            lib.installConfigHeader(config_header, .{});
+            lib.installConfigHeader(config_header);
         },
     }
-    lib.installHeadersDirectory("include", "");
+    lib.installHeadersDirectory(b.path("include"), "SDL3", .{});
     b.installArtifact(lib);
 }
 
