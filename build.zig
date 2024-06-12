@@ -90,6 +90,8 @@ const generic_src_files = [_][]const u8{
     "src/audio/dummy/SDL_dummyaudio.c",
 
     "src/camera/SDL_camera.c",
+    "src/camera/dummy/SDL_camera_dummy.c",
+    "src/camera/mediafoundation/SDL_camera_mediafoundation.c",
 
     "src/core/SDL_core_unsupported.c",
     "src/core/SDL_runapp.c",
@@ -187,6 +189,8 @@ const generic_src_files = [_][]const u8{
     "src/render/software/SDL_render_sw.c",
     "src/render/software/SDL_rotate.c",
     "src/render/software/SDL_triangle.c",
+    "src/render/vulkan/SDL_render_vulkan.c",
+    "src/render/vulkan/SDL_shaders_vulkan.c",
 
     "src/sensor/SDL_sensor.c",
 
@@ -205,8 +209,15 @@ const generic_src_files = [_][]const u8{
     "src/stdlib/SDL_strtokr.c",
 
     "src/storage/SDL_storage.c",
+    "src/storage/generic/SDL_genericstorage.c",
 
     "src/thread/SDL_thread.c",
+    "src/thread/generic/SDL_syscond.c",
+    "src/thread/generic/SDL_sysmutex.c",
+    "src/thread/generic/SDL_sysrwlock.c",
+    "src/thread/generic/SDL_syssem.c",
+    "src/thread/generic/SDL_systhread.c",
+    "src/thread/generic/SDL_systls.c",
 
     "src/time/SDL_time.c",
 
@@ -239,6 +250,12 @@ const generic_src_files = [_][]const u8{
     "src/video/dummy/SDL_nullevents.c",
     "src/video/dummy/SDL_nullframebuffer.c",
     "src/video/dummy/SDL_nullvideo.c",
+    "src/video/offscreen/SDL_offscreenevents.c",
+    "src/video/offscreen/SDL_offscreenframebuffer.c",
+    "src/video/offscreen/SDL_offscreenopengles.c",
+    "src/video/offscreen/SDL_offscreenvideo.c",
+    "src/video/offscreen/SDL_offscreenvulkan.c",
+    "src/video/offscreen/SDL_offscreenwindow.c",
 };
 
 const windows_src_files = [_][]const u8{
