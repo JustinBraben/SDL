@@ -59,7 +59,7 @@ pub fn build(b: *std.Build) void {
             lib.installConfigHeader(config_header);
         },
     }
-    lib.installHeadersDirectory(b.path("include"), "SDL2", .{});
+    lib.installHeadersDirectory(b.path("include"), "", .{});
     b.installArtifact(lib);
 }
 
